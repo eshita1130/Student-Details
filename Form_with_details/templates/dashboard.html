@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .student-info {
+            margin-bottom: 20px;
+        }
+
+        .student-name {
+            cursor: pointer;
+            color: #000;
+            display: inline-block;
+            margin-bottom: 0;
+        }
+
+        .student-name:hover {
+            color: #007f0f;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Student Dashboard</h1>
+        {% for i in data %}
+        <div class="student-info">
+            <div class="student-name p-2" data-bs-toggle="collapse" href="#collapse{{ i._id }}" aria-expanded="false" aria-controls="collapse{{ i._id }}">
+                {{ i.name }}
+            </div>
+            <div class="collapse" id="collapse{{ i._id }}">
+                <form method="post" action="/update">
+                    <table class="table table-bordered mt-2">
+                        <tr>
+                            <th>Registration No</th>
+                            <td><input name="registration_no" type="text" class="form-control" value="{{ i.registration_no }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Roll No</th>
+                            <td><input name="roll_no" type="text" class="form-control" value="{{ i.roll_no }}"></td>
+                        </tr>
+                        <tr>
+                            <th>School</th>
+                            <td><input name="school" type="text" class="form-control" value="{{ i.school }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Program</th>
+                            <td><input name="program" type="text" class="form-control" value="{{ i.program }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Admission Year</th>
+                            <td><input name="admission_year" type="text" class="form-control" value="{{ i.admission_year }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td><input name="address" type="text" class="form-control" value="{{ i.address }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Email ID</th>
+                            <td><input name="email" type="email" class="form-control" value="{{ i.email }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Phone No</th>
+                            <td><input name="phone" type="tel" class="form-control" value="{{ i.phone }}"></td>
+                        </tr>
+                        <tr>
+                            <th>Date of Birth</th>
+                            <td><input name="dob" type="date" class="form-control" value="{{ i.dob }}"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.querySelectorAll('.student-name').forEach(name => {
+            name.addEventListener('click', () => {
+                const collapseElement = name.nextElementSibling;
+                const allCollapses = document.querySelectorAll('.collapse');
+                allCollapses.forEach(collapse => {
+                    if (collapse !== collapseElement) {
+                        collapse.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

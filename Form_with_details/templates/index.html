@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #f8cb4f;
+            margin: 0;
+            padding: 0;
+        }
+
+        .translucent-background {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 50px;
+        }
+
+        .img-container {
+            width: 50%;
+            float: left;
+            padding: 10px;
+        }
+
+        .form-container {
+            width: 48%;
+            float: left;
+            padding: 20px;
+            border: none;
+            border-radius: 50px;
+            left: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .img-container, .form-container {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        .admin-button-container {
+            text-align: right;
+            padding-right: 50px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="row admin-button-container">
+        <div class="col-md-12">
+            <form action="/admin" method="post">
+                <button type="submit" name="login" class="btn btn-link7">ADMIN</button>
+            </form>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 img-container">
+            <img src="../static/12345.gif" class="img-fluid">
+        </div>
+        <div class="col-md-6 form-container">
+            <div class="translucent-background">
+                <h1 class="card-title">Student Details Form</h1>
+                <form action="/submit" method="post">
+                    <div class="mb-3">
+                        <br>
+                        <input type="text" class="form-control" name="name" placeholder="NAME"><br>
+                        <input type="text" class="form-control" name="registration_no" placeholder="REGISTRATION No"><br>
+                        <input type="text" class="form-control" name="roll_no" placeholder="ROLL No"><br>
+                        <input type="text" class="form-control" name="school" placeholder="SCHOOL"><br>
+                        <input type="text" class="form-control" name="program" placeholder="PROGRAM"><br>
+                        <input type="text" class="form-control" name="admission_year" placeholder="ADMISSION YEAR"><br>
+                        <input type="text" class="form-control" name="address" placeholder="ADDRESS"><br>
+                        <select class="form-control" name="gender">
+                            <option value="" disabled selected>GENDER</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select><br>
+                        <input type="email" class="form-control" name="email" placeholder="EMAIL ID"><br>
+                        <input type="tel" class="form-control" name="phone" placeholder="PHONE No"><br>
+                        <input type="date" class="form-control" name="dob" placeholder="DATE OF BIRTH"><br>
+                        <center>
+                            <button type="submit" name="submit" class="btn btn-success" value="SUBMIT">SUBMIT</button>
+                        </center>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
